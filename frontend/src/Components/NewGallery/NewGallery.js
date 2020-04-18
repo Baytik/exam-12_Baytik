@@ -7,18 +7,29 @@ import {postGallery} from "../../store/actions/GalleriesAction";
 class NewGallery extends Component {
 
     state = {
-      title: '',
-      image: null
+        title: '',
+        image: null
     };
 
-    changeInputHandler = e => {this.setState({[e.target.name]: e.target.value})};
-    fileChangeHandler = e => {this.setState({[e.target.name]: e.target.files[0]})};
+    changeInputHandler = e => {
+        this.setState({[e.target.name]: e.target.value})
+    };
+    fileChangeHandler = e => {
+        this.setState({[e.target.name]: e.target.files[0]})
+    };
 
     postNewGallery = async () => {
-        const Gallery = new FormData();
-        Gallery.append('title', this.state.title);
-        Gallery.append('image', this.state.image);
-        await this.props.postGallery(Gallery);
+        if (this.state.title === '' || this.state.title === ' ') {
+            alert('Напишите текст')
+        }
+        else if (this.state.image === null || this.state.image === undefined) {
+            alert('Вставтье картину')
+        } else {
+            const Gallery = new FormData();
+            Gallery.append('title', this.state.title);
+            Gallery.append('image', this.state.image);
+            await this.props.postGallery(Gallery);
+        }
     };
 
     render() {

@@ -43,7 +43,7 @@ class UsersProfile extends Component {
             <div className="users-profile">
                 <div className="users-header">
                     <h1>{this.props.usersGalleries[0] ? this.props.usersGalleries[0].user.username + "'s gallery" : (
-                        <div/>
+                       this.props.user ? this.props.user.username + "'s Gallery" : ''
                     )}</h1>
                     {this.props.user ? this.props.user._id === this.props.match.params.id && (
                         <NavLink to="/add/new/photo">Add new photo</NavLink>
