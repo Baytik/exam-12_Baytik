@@ -5,6 +5,8 @@ import Header from "./Components/Header/Header";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import UsersProfile from "./Components/UsersProfile/UsersProfile";
+import NewGallery from "./Components/NewGallery/NewGallery";
+import PhotoGallery from "./Components/PhotoGallery/PhotoGallery";
 
 class App extends Component {
     render() {
@@ -12,9 +14,11 @@ class App extends Component {
             <div className="App">
                 <Header/>
                 <Switch>
+                    <Route path="/" exact component={PhotoGallery}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/login" component={Login}/>
-                    <Route path="/users/:name" component={UsersProfile}/>
+                    <Route path="/users/:id" component={UsersProfile}/>
+                    <Route path="/add/new/photo" component={NewGallery}/>
                 </Switch>
             </div>
         )

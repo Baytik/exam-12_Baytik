@@ -3,6 +3,7 @@ import './Login.css';
 import {connect} from "react-redux";
 import FacebookLogin from "../FacebookLogin/FacebookLogin";
 import {loginUser} from "../../store/actions/userLogAction";
+import {Redirect} from "react-router-dom";
 
 class Login extends Component {
 
@@ -22,6 +23,7 @@ class Login extends Component {
     };
 
     render() {
+        if (this.props.user) return <Redirect to="/"/>;
         return (
             <div className="login">
                 <p>Login</p>
@@ -46,6 +48,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
+    user: state.user.user,
     loginError: state.user.loginError
 });
 

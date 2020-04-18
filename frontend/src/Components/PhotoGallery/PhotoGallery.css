@@ -1,0 +1,24 @@
+.photo-gallery {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-box {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.flex-box img {
+    width: 200px;
+    height: 200px;
+}
+.flex-box a {
+    text-decoration: none;
+}
+.flex-box a:hover {
+    text-decoration: underline;
+}
+.flex-box span {
+    color: black;
+}

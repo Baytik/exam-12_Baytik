@@ -21,7 +21,7 @@ class Header extends Component {
                         {this.props.user ? (
                             <>
                                 <span>Hello,
-                                    <NavLink to={`/users/${this.props.user.username}`}> {this.props.user.username}</NavLink>!
+                                    <NavLink to={`/users/${this.props.user._id}`}> {this.props.user.username}</NavLink>!
                                 </span>
                                 <li>
                                     <p>or</p>

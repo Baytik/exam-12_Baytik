@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const config = require('./config');
 const users = require('./app/users');
+const gallery = require('./app/gallery');
 
 const app = express();
 const port = 8000;
@@ -15,6 +16,7 @@ app.use(express.static('public'));
 const run = async () => {
     await mongoose.connect(config.database, config.databaseOptions);
     app.use('/users', users);
+    app.use('/galleries', gallery);
     app.listen(port)
 };
 

@@ -3,13 +3,38 @@
     display: flex;
     justify-content: space-between;
 }
-.users-header button {
+.users-header a {
     padding: 5px 10px;
     background: white;
     border: 2px solid black;
     font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 .users-header h1 {
     margin: 0;
+}
+.profile-galleries {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.profile-gallery {
+    margin: 0 20px;
+}
+.profile-gallery img {
+    width: 200px;
+    height: 200px;
+}
+.profile-gallery a {
+    text-align: center;
+}
+.delete {
+    background: red;
+    font-size: 18px;
+    color: #ccc;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 30px;
 }
