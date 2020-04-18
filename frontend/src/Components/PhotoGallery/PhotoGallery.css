@@ -9,7 +9,8 @@
     margin-bottom: 20px;
     text-align: center;
 }
-.flex-box img {
+.image {
+    cursor: pointer;
     width: 200px;
     height: 200px;
 }
@@ -21,4 +22,24 @@
 }
 .flex-box span {
     color: black;
+}
+.flex-box p {
+    cursor: pointer;
+}
+.flex-box p:hover {
+    text-decoration: underline;
+}
+.modal-image {
+    width: 450px;
+    height: 400px;
+}
+.close {
+    font-size: 16px;
+    border: none;
+    padding: 5px 10px;
+    color: #cccccc;
+    background: darkblue;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 40%;
 }

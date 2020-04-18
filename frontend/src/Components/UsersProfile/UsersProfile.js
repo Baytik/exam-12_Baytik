@@ -4,8 +4,14 @@ import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 import {deleteGallery, fetchUsersGalleries} from "../../store/actions/GalleriesAction";
 import {apiURL} from "../../apiURL";
+import Modal from "../../IU/Modal/Modal";
 
 class UsersProfile extends Component {
+
+    state = {
+        purchasing: false,
+        image: null
+    };
 
     componentDidMount() {
         const id = this.props.match.params.id;
@@ -24,6 +30,14 @@ class UsersProfile extends Component {
         await this.props.fetchUsersGalleries(this.props.match.params.id)
     };
 
+    purchaseHandler = (image) => {
+        this.setState({purchasing: true, image: image});
+    };
+
+    purchaseCancel = () => {
+        this.setState({purchasing: false});
+    };
+
     render() {
         return (
             <div className="users-profile">
@@ -39,14 +53,23 @@ class UsersProfile extends Component {
                 </div>
                 <div className="profile-galleries">
                     {this.props.usersGalleries.map(gallery => (
-                        <div className="profile-gallery" key={gallery._id}>
-                            <img src={apiURL + '/uploads/' + gallery.image} alt="gallery"/>
-                            <p>{gallery.title}</p>
+                        <div key={gallery._id}>
+                        <div className="profile-gallery">
+                            <img src={apiURL + '/uploads/' + gallery.image}
+                                 alt="gallery"
+                                 onClick={() => this.purchaseHandler(apiURL + '/uploads/' + gallery.image)}
+                            />
+                            <p onClick={() => this.purchaseHandler(apiURL + '/uploads/' + gallery.image)}>{gallery.title}</p>
                             {this.props.user ? this.props.user._id === this.props.match.params.id && (
                                 <button className="delete" onClick={() => this.deleteGallery(gallery._id)}>Delete</button>
                             ) : (
                                 <div/>
                             )}
+                        </div>
+                            <Modal show={this.state.purchasing} close={this.purchaseCancel}>
+                                <img src={this.state.image} alt="gallery" className="modal-image"/>
+                                <button onClick={this.purchaseCancel} className="close">close</button>
+                            </Modal>
                         </div>
                     ))}
                 </div>
