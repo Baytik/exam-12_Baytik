@@ -14,16 +14,15 @@ class Header extends Component {
         return (
             <header className="header">
                 <div className="logo">
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/">Photo Gallery</NavLink>
                 </div>
                 <nav className="main-nav">
                     <ul>
                         {this.props.user ? (
                             <>
-                                <span>Hello, {this.props.user.username}!</span>
-                                <li>
-                                    <NavLink to="/track_history">Track History</NavLink>
-                                </li>
+                                <span>Hello,
+                                    <NavLink to={`/users/${this.props.user.username}`}> {this.props.user.username}</NavLink>!
+                                </span>
                                 <li>
                                     <p>or</p>
                                 </li>

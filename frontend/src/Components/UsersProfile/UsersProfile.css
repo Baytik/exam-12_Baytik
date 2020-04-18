@@ -1,0 +1,15 @@
+.users-header {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.users-header button {
+    padding: 5px 10px;
+    background: white;
+    border: 2px solid black;
+    font-size: 16px;
+    cursor: pointer;
+}
+.users-header h1 {
+    margin: 0;
+}

@@ -22,6 +22,10 @@
     color: black;
     text-decoration: none;
 }
+.main-nav span a {
+    font-weight: normal;
+    color: darkblue;
+}
 .main-nav p {
     margin: 0;
     color: green;
